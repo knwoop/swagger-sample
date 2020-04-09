@@ -1,5 +1,11 @@
 # swagger-sample
 
+## Generate swagger
+
+``` shell
+swagger generate server -t mock -f ./swagger/swagger.yml --exclude-main -A greeter
+```
+
 ## Let's run the server:
 
 ```
