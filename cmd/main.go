@@ -2,8 +2,9 @@ package main
 
 import (
 	"flag"
-	"github.com/knwoop/swagger-sample/registry"
 	"log"
+
+	"github.com/knwoop/swagger-sample/registry"
 
 	"github.com/go-openapi/loads"
 	"github.com/knwoop/swagger-sample/mock/restapi"
