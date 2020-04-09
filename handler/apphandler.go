@@ -7,6 +7,6 @@ type AppHandler struct {
 	api operations.GreeterAPI
 }
 
-func (a *AppHandler)Handler(api *operations.GreeterAPI) {
+func (a *AppHandler) Handler(api *operations.GreeterAPI) {
 	api.GetGreetingHandler = operations.GetGreetingHandlerFunc(a.HelloHandler.hello)
 }
