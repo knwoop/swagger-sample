@@ -1,5 +1,11 @@
 # swagger-sample
 
+## make mock dir
+
+``` shell
+$ mkdir mock
+```
+
 ## Generate swagger
 
 ``` shell
