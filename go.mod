@@ -9,6 +9,7 @@ require (
 	github.com/go-openapi/spec v0.19.7
 	github.com/go-openapi/strfmt v0.19.5
 	github.com/go-openapi/swag v0.19.8
+	github.com/google/wire v0.4.0
 	github.com/jessevdk/go-flags v1.4.0
 	golang.org/x/net v0.0.0-20200226121028-0de0cce0169b
 )

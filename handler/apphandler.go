@@ -3,10 +3,13 @@ package handler
 import "github.com/knwoop/swagger-sample/mock/restapi/operations"
 
 type AppHandler struct {
-	HelloHandler
-	api operations.GreeterAPI
+	hello *HelloHandler
 }
 
-func (a *AppHandler) Handler(api *operations.GreeterAPI) {
-	api.GetGreetingHandler = operations.GetGreetingHandlerFunc(a.HelloHandler.hello)
+func NewAppHandler(h *HelloHandler) *AppHandler {
+	return &AppHandler{hello: h}
+}
+
+func (app *AppHandler) Register(api *operations.GreeterAPI) {
+	api.GetGreetingHandler = operations.GetGreetingHandlerFunc(app.hello.hello)
 }

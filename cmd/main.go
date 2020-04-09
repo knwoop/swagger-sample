@@ -2,11 +2,8 @@ package main
 
 import (
 	"flag"
-	"fmt"
+	"github.com/knwoop/swagger-sample/registry"
 	"log"
-
-	"github.com/go-openapi/runtime/middleware"
-	"github.com/go-openapi/swag"
 
 	"github.com/go-openapi/loads"
 	"github.com/knwoop/swagger-sample/mock/restapi"
@@ -32,16 +29,7 @@ func main() {
 	// set the port this service will be run on
 	server.Port = *portFlag
 
-	api.GetGreetingHandler = operations.GetGreetingHandlerFunc(
-		func(params operations.GetGreetingParams) middleware.Responder {
-			name := swag.StringValue(params.Name)
-			if name == "" {
-				name = "World"
-			}
-
-			greeting := fmt.Sprintf("Hello, %s!", name)
-			return operations.NewGetGreetingOK().WithPayload(greeting)
-		})
+	registry.InitializeApp().Register(api)
 
 	// serve API
 	if err := server.Serve(); err != nil {

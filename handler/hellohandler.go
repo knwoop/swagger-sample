@@ -11,6 +11,10 @@ import (
 type HelloHandler struct {
 }
 
+func NewHelloHandler() *HelloHandler {
+	return &HelloHandler{}
+}
+
 func (_ *HelloHandler) hello(params operations.GetGreetingParams) middleware.Responder {
 	name := swag.StringValue(params.Name)
 	if name == "" {
