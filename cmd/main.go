@@ -4,11 +4,12 @@ import (
 	"flag"
 	"log"
 
-	"github.com/knwoop/swagger-sample/registry"
-
 	"github.com/go-openapi/loads"
+	"github.com/justinas/alice"
+	"github.com/knwoop/swagger-sample/handler/middlewares"
 	"github.com/knwoop/swagger-sample/mock/restapi"
 	"github.com/knwoop/swagger-sample/mock/restapi/operations"
+	"github.com/knwoop/swagger-sample/registry"
 )
 
 var portFlag = flag.Int("port", 3000, "port to run this serivice on")
@@ -31,6 +32,14 @@ func main() {
 	server.Port = *portFlag
 
 	registry.InitializeApp().Register(api)
+
+	handler := alice.New(
+		middlewares.Middleware1,
+		middlewares.Middleware2,
+		middlewares.Middleware2,
+	).Then(api.Serve(nil))
+
+	server.SetHandler(handler)
 
 	// serve API
 	if err := server.Serve(); err != nil {

@@ -11,5 +11,6 @@ require (
 	github.com/go-openapi/swag v0.19.8
 	github.com/google/wire v0.4.0
 	github.com/jessevdk/go-flags v1.4.0
+	github.com/justinas/alice v1.2.0 // indirect
 	golang.org/x/net v0.0.0-20200226121028-0de0cce0169b
 )
