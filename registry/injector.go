@@ -7,7 +7,10 @@ import (
 	"github.com/knwoop/swagger-sample/handler"
 )
 
-func InitializeApp() (appHandler *handler.AppHandler) {
-	wire.Build(handler.WireSet)
+func InitializeApp() (appHandler *handler.Handler) {
+	wire.Build(
+		handler.WireSet,
+		wire.Struct(new(handler.Handler), "*"),
+	)
 	return
 }

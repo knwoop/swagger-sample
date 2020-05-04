@@ -11,8 +11,10 @@ import (
 
 // Injectors from injector.go:
 
-func InitializeApp() *handler.AppHandler {
+func InitializeApp() *handler.Handler {
 	helloHandler := handler.NewHelloHandler()
-	appHandler := handler.NewAppHandler(helloHandler)
-	return appHandler
+	handlerHandler := &handler.Handler{
+		Hello: helloHandler,
+	}
+	return handlerHandler
 }
