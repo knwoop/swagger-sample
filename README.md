@@ -15,7 +15,7 @@ swagger generate server -t mock -f ./swagger/swagger.yml --exclude-main -A greet
 ## Let's run the server:
 
 ```
-$ go run ./cmd/greeter/main.go --port 3000
+$ go run ./cmd/server/main.go --port 3000
 ```
 
 ## Let's now try to call our only defined operation, using the [httpie](https://httpie.org/) cli:
