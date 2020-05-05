@@ -6,6 +6,7 @@ import (
 )
 
 func Middleware1(next http.Handler) http.Handler {
+	fmt.Println("[SET] Middleware1")
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("[START] Middleware1")
 		next.ServeHTTP(w, r)
