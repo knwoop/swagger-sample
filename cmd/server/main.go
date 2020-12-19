@@ -16,7 +16,6 @@ var portFlag = flag.Int("port", 3000, "port to run this serivice on")
 
 func main() {
 	// load embedded swagger file
-
 	swaggerSpec, err := loads.Analyzed(restapi.SwaggerJSON, "")
 	if err != nil {
 		log.Fatalln(err)
